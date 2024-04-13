@@ -43,7 +43,7 @@ export async function ScrapeAmazonProduct(url : string){
         const currency = extractCurrency($('.a-price-symbol'));
         const discountRate = $('.savingsPercentage').text().replace(/[-%]/g,"");
         const description = extractDescription($)
-        
+        const cate = $(".a-list-item").first().text().trim()
         const data = {
             url,
             currency : currency || '$',
@@ -53,7 +53,7 @@ export async function ScrapeAmazonProduct(url : string){
             originalPrice : Number(originalPrice) || Number(currentPrice) ,
             priceHistory : [],
             discountRate : Number(discountRate),
-            category : 'category',
+            category : cate || 'category',
             reviewsCount : 100,
             stars : 4.5,
             isOutOfStock : outOfStock,
