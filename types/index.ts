@@ -1,4 +1,4 @@
-export type PriceHistoryItem = {
+ export type PriceHistoryItem = {
     price: number;
   };
   
